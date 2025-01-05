@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Generator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background: #0078d7;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background: #005fa3;
+            padding: 0.5em 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 1em;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.7em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.7em;
+            border: none;
+            border-radius: 5px;
+            background: #0078d7;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+
+        .email-display {
+            margin-top: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #e9f5ff;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+            background: #0078d7;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            button {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Email Generator</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="container">
+        <h2>Generate a New Email</h2>
+        <div class="form-group">
+            <label for="email">Generated Email:</label>
+            <div class="email-display" id="emailDisplay">Click Generate to create an email</div>
+        </div>
+        <button id="generateEmail">Generate Email</button>
+    </div>
+    <footer>
+        <p>&copy; 2024 Email Generator. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('generateEmail').addEventListener('click', () => {
+            const domain = ['gmail.com', 'testmail.com', 'random.org'];
+            const randomString = Math.random().toString(36).substring(2, 11);
+            const randomDomain = domain[Math.floor(Math.random() * domain.length)];
+            const generatedEmail = `${randomString}@${randomDomain}`;
+
+            document.getElementById('emailDisplay').textContent = generatedEmail;
+        });
+    </script>
+</body>
+</html>
